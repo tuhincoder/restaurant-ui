@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "foodix-italian-bistro",
+    "name": "Foodix Italian Bistro",
+    "tagline": "Authentic Italian Taste",
+    "heroVideo": "restaurant.mp4",
+    "menu": [
+      {
+        "id": 1,
+        "title": "Margherita Pizza",
+        "description": "Fresh mozzarella & basil",
+        "price": 12,
+        "image": "https://i.ibb.co.com/TDk7nDQB/menu1.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Margherita Pizza",
+        "description": "Fresh mozzarella & basil",
+        "price": 12,
+        "image": "https://i.ibb.co.com/bRjmSFMd/menu2.jpg"
+      },
+      {
+        "id": 3,
+        "title": "Margherita Pizza",
+        "description": "Fresh mozzarella & basil",
+        "price": 12,
+        "image": "https://i.ibb.co.com/CFrTs07/menu3.jpg"
+      },
+      {
+        "id": 3,
+        "title": "Margherita Pizza",
+        "description": "Fresh mozzarella & basil",
+        "price": 12,
+        "image": "https://i.ibb.co.com/tT3q2mQG/menu4.jpg"
+      }
+    ]
+  }
+]
