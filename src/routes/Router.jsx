@@ -2,7 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import Menu from "@/pages/Menu";
-import Contact from "@/pages/Contact";
+import AboutUs from "@/pages/AboutUs";
+import Reservation from "@/pages/Reservation";
+import BookATable from "@/pages/BookATable";
 
 const router = createBrowserRouter([
   {
@@ -18,8 +20,16 @@ const router = createBrowserRouter([
         element: <Menu />,
       },
       {
-        path: "contact",
-        element: <Contact />,
+        path: "aboutUs",
+        element: <AboutUs />,
+      },
+      {
+        path: "reservation",
+        element: <Reservation />,
+      },
+      {
+        path: "bookTable",
+        element: <BookATable />,
       },
     ],
   },

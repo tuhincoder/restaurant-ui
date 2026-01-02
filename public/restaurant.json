@@ -1,9 +1,26 @@
 [
   {
-    "slug": "foodix-italian-bistro",
+    "restaurantName": "foodix-italian",
+    "restaurantImg1": "foodix-italian",
+    "restaurantImg2": "foodix-italian",
+    "reservationImg": "",
     "name": "Foodix Italian Bistro",
     "tagline": "Authentic Italian Taste",
     "heroVideo": "restaurant.mp4",
+    "bookTableImg": "",
+    "ceoImg": "",
+    "contactUs": {
+      "phone": "9283749372",
+      "location": "Via Serlas 546, 6700 St.Moritz, Switzerland",
+      "email": "example@gmail.com",
+      "opening-hours": "example@gmail.com"
+    },
+    "socialLink": {
+      "facebook": "",
+      "instagram": "",
+      "x": "",
+      "discord": ""
+    },
     "menu": [
       {
         "id": 1,
@@ -16,18 +33,18 @@
         "id": 2,
         "title": "Margherita Pizza",
         "description": "Fresh mozzarella & basil",
-        "price": 12,
+        "price": 15,
         "image": "https://i.ibb.co.com/bRjmSFMd/menu2.jpg"
       },
       {
         "id": 3,
         "title": "Margherita Pizza",
         "description": "Fresh mozzarella & basil",
-        "price": 12,
+        "price": 11,
         "image": "https://i.ibb.co.com/CFrTs07/menu3.jpg"
       },
       {
-        "id": 3,
+        "id": 24,
         "title": "Margherita Pizza",
         "description": "Fresh mozzarella & basil",
         "price": 12,

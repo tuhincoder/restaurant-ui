@@ -7,6 +7,7 @@ import axios from "axios";
 import Reservation from "./Reservation";
 
 import LuxuryCeoSection from "./LuxuryCeoSection";
+import ContactUs from "./ContactUs";
 
 export default function Home() {
   // const [data, isLoading] = useRestaurant();
@@ -32,6 +33,7 @@ export default function Home() {
       <MenuPreviewSection menu={restaurantData?.[0].menu} />
       <Reservation />
       <LuxuryCeoSection />
+      <ContactUs />
     </>
   );
 }
