@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const SignatureSection = () => {
   return (
-    <section className="bg-[#050c10] py-12 md:py-20 px-4 sm:px-6 lg:px-24">
+    <section className=" bg-[#051117] py-12 md:py-20 px-4 sm:px-6 lg:px-24">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { motion } from "framer-motion"; // Animation er jonno (Optional kintu sundor dekhay)
+import { motion } from "framer-motion";
+import { ArrowRight, Quote } from "lucide-react";
 
 // Mock API Call
 const fetchCeoSectionData = async () => {
@@ -25,99 +26,105 @@ const LuxuryCeoSection = () => {
 
   if (isLoading)
     return (
-      <div className="h-screen flex justify-center items-center bg-[#080808]">
-        <span className="loading loading-spinner text-amber-500 w-16"></span>
+      <div className="h-96 flex justify-center items-center bg-[#051117]">
+        <span className="loading loading-spinner text-amber-500 w-12"></span>
       </div>
     );
 
   return (
-    <section className="relative bg-[#080808] text-white py-24 px-6 lg:px-20 overflow-hidden">
-      {/* Background Decorative Element */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-amber-900 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-10 right-10 w-64 h-64 bg-amber-900 rounded-full blur-[120px]"></div>
+    <section className="relative bg-[#051117] text-white py-20 lg:py-10 px-6 overflow-hidden">
+      {/* Dynamic Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20 pointer-events-none">
+        <div className="absolute top-1/4 left-10 w-48 md:w-96 h-48 md:h-96 bg-amber-900/30 rounded-full blur-[100px]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center">
-          {/* Column 1: CEO Image with Decorative Frame */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-16 items-center">
+          {/* Column 1: CEO Image with Floating Quote */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative group h-[550px]"
+            className="relative h-[450px] md:h-[550px] order-1"
           >
-            <div className="absolute -inset-4 border border-amber-500/20 translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-            <div className="relative h-full overflow-hidden shadow-2xl">
+            <div className="absolute -inset-3 border border-amber-500/20 rounded-xl translate-x-2 translate-y-2"></div>
+            <div className="relative h-full overflow-hidden rounded-xl shadow-2xl">
               <img
                 src={data.ceoImage}
                 alt="CEO"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
               />
+              <div className="absolute bottom-6 left-6 bg-amber-500 p-3 rounded-lg text-black">
+                <Quote size={20} fill="currentColor" />
+              </div>
             </div>
           </motion.div>
 
-          {/* Column 2: Food Action Image */}
+          {/* Column 2: Food Action (Hidden on Small Mobile, Visible on Tablet+) */}
           <motion.div
-            initial={{ opacity: 0, y: 80 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-[550px] shadow-2xl hidden md:block"
+            className="h-[550px] shadow-2xl hidden md:block order-3 lg:order-2"
           >
-            <img
-              src={data.foodImage}
-              alt="Food"
-              className="w-full h-full object-cover brightness-75 hover:brightness-100 transition duration-500"
-            />
+            <div className="relative h-full rounded-xl overflow-hidden group">
+              <img
+                src={data.foodImage}
+                alt="Food"
+                className="w-full h-full object-cover brightness-50 group-hover:brightness-90 group-hover:scale-110 transition duration-1000"
+              />
+              <div className="absolute inset-0 border-[15px] border-black/20 pointer-events-none"></div>
+            </div>
           </motion.div>
 
           {/* Column 3: Content Section */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col items-center lg:items-start text-center lg:text-left"
+            className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-3"
           >
-            {/* Elegant Subtitle */}
-            <span className="font-serif italic text-amber-500 text-2xl mb-4 tracking-wide block">
+            <span className="font-serif italic text-amber-500 text-xl md:text-2xl mb-4">
               {data.subtitle}
             </span>
 
-            {/* Main Heading with Golden Lines */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-8 w-full">
-              <div className="h-[1px] w-8 bg-amber-600"></div>
-              <h2 className="text-4xl md:text-5xl font-extralight tracking-[0.25em] leading-tight uppercase">
-                {data.title.split(" ").map((word, i) => (
-                  <span
-                    key={i}
-                    className={i === 1 ? "font-semibold text-amber-500" : ""}
-                  >
-                    {word}{" "}
-                  </span>
-                ))}
-              </h2>
-              <div className="h-[1px] w-8 bg-amber-600 lg:hidden"></div>
-            </div>
+            <h2 className="text-3xl md:text-5xl font-light tracking-[0.15em] leading-tight uppercase mb-8">
+              {data.title.split(" ").map((word, i) => (
+                <span
+                  key={i}
+                  className={
+                    i === 1 ? "font-bold text-amber-500 block md:inline" : ""
+                  }
+                >
+                  {word}{" "}
+                </span>
+              ))}
+            </h2>
 
-            {/* Description */}
-            <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed mb-10 max-w-md">
+            <p className="text-gray-400 text-sm md:text-lg font-light leading-relaxed mb-10 max-w-md border-l-2 border-amber-500/20 pl-6 lg:pl-0 lg:border-none">
               {data.description}
             </p>
 
-            {/* Custom Luxury Button */}
-            <button className="group relative overflow-hidden bg-transparent border border-amber-500/30 px-10 py-4 transition-all duration-300">
-              <span className="relative z-10 text-sm tracking-[0.4em] font-medium group-hover:text-black transition-colors duration-300">
+            {/* Premium Button */}
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="group flex items-center gap-4 bg-transparent border border-amber-500/50 px-8 py-4 rounded-full hover:bg-amber-500 transition-all duration-500"
+            >
+              <span className="text-[10px] md:text-xs tracking-[0.3em] font-bold group-hover:text-black">
                 {data.ctaText}
               </span>
-              {/* Button Hover Fill */}
-              <div className="absolute inset-0 bg-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-            </button>
+              <div className="w-8 h-[1px] bg-amber-500 group-hover:bg-black transition-all"></div>
+              <ArrowRight
+                size={16}
+                className="text-amber-500 group-hover:text-black transition-all"
+              />
+            </motion.button>
 
-            {/* Social Link Indicators (Optional extra beauty) */}
-            <div className="mt-12 flex gap-6 opacity-30">
-              <div className="w-10 h-[1px] bg-white"></div>
-              <div className="w-2 h-2 rounded-full bg-amber-500"></div>
-              <div className="w-10 h-[1px] bg-white"></div>
+            {/* Visual Indicators for Mobile UX */}
+            <div className="flex gap-2 mt-12 md:hidden">
+              <div className="w-12 h-1 bg-amber-500 rounded-full"></div>
+              <div className="w-2 h-1 bg-white/20 rounded-full"></div>
+              <div className="w-2 h-1 bg-white/20 rounded-full"></div>
             </div>
           </motion.div>
         </div>

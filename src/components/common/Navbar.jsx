@@ -26,6 +26,7 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "Menu", path: "/menu" },
     { name: "About Us", path: "/aboutUs" },
+    { name: "Contact", path: "/contact" },
     { name: "Reservation", path: "/reservation" },
   ];
 
@@ -79,12 +80,12 @@ export default function Navbar() {
         {/* --- Action Buttons --- */}
         <div className="flex-1 flex items-center justify-end gap-4">
           {/* Theme Toggle */}
-          <button
+          {/* <button
             className="p-2 rounded-full border border-white/10 hover:bg-white/5 transition-colors text-amber-500"
             onClick={() => setDark(!dark)}
           >
             {dark ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+          </button> */}
 
           {/* Book Table Button (Desktop) */}
           <NavLink

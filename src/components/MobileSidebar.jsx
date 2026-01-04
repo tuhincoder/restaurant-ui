@@ -1,21 +1,16 @@
 import { useState, useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Menu, Instagram, Facebook, Twitter } from "lucide-react";
+import { X, Menu, Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function MobileSidebar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  // Close sidebar on route change
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
+  useEffect(() => setOpen(false), [location.pathname]);
 
-  // Disable scroll when sidebar is open
   useEffect(() => {
-    if (open) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
+    document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
 
   const navLinks = [
@@ -23,58 +18,60 @@ export default function MobileSidebar() {
     { name: "Menu", path: "/menu" },
     { name: "About Us", path: "/aboutUs" },
     { name: "Contact", path: "/contact" },
-    { name: "Reservation", path: "/reservation" },
+    { name: "Book Now", path: "/reservation" },
   ];
 
   return (
     <>
-      {/* --- Hamburger Button --- */}
+      {/* --- Trigger Button --- */}
       <button
-        className="p-2 text-amber-500 hover:bg-white/5 rounded-lg transition-colors"
+        className="flex items-center gap-2 px-4 py-2 border border-white/10 rounded-full active:scale-95 transition-all"
         onClick={() => setOpen(true)}
       >
-        <Menu size={28} />
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+          Menu
+        </span>
+        <Menu size={18} className="text-amber-500" />
       </button>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 w-full h-screen bg-[#050c10] z-[200] flex flex-col p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 w-full h-screen bg-[#050505] z-[200] flex flex-col"
           >
-            {/* --- Top Bar in Sidebar --- */}
-            <div className="flex justify-between items-center mb-16">
-              <span className="text-xl font-serif font-bold text-white tracking-tighter">
+            {/* --- Top Header --- */}
+            <div className="flex justify-between items-center px-8 py-6">
+              <span className="text-lg font-bold tracking-tighter text-white">
                 FOODIX<span className="text-amber-500">.</span>
               </span>
               <button
                 onClick={() => setOpen(false)}
-                className="p-2 bg-white/5 rounded-full text-amber-500"
+                className="p-2 text-white/40 hover:text-white"
               >
-                <X size={24} />
+                <X size={28} strokeWidth={1.5} />
               </button>
             </div>
 
             {/* --- Navigation Links --- */}
-            <nav className="flex flex-col gap-8">
+            <nav className="flex-1 flex flex-col justify-center px-10 space-y-8">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.path}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * i }}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.1 }}
                 >
                   <NavLink
                     to={link.path}
                     className={({ isActive }) => `
-                      text-4xl font-light tracking-widest uppercase transition-all duration-300
+                      text-4xl font-light tracking-tight transition-all
                       ${
                         isActive
                           ? "text-amber-500 italic font-serif"
-                          : "text-gray-400 hover:text-white"
+                          : "text-white/30 hover:text-white"
                       }
                     `}
                   >
@@ -84,37 +81,47 @@ export default function MobileSidebar() {
               ))}
             </nav>
 
-            {/* --- Bottom Sidebar Info --- */}
-            <div className="mt-auto space-y-8">
-              <div className="h-[1px] w-full bg-white/10"></div>
+            {/* --- Bottom Footer (Number + Socials) --- */}
+            <div className="p-10 border-t border-white/5 bg-white/[0.01]">
+              <div className="flex items-end justify-between">
+                {/* Contact Info */}
+                <div className="space-y-1">
+                  <span className="text-[10px] uppercase tracking-widest text-white/30 font-bold">
+                    Reservation
+                  </span>
+                  <a
+                    href="tel:+123456789"
+                    className="block text-xl text-white font-medium"
+                  >
+                    +1 (234) 567-890
+                  </a>
+                </div>
 
-              <div className="space-y-2">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">
-                  Reservation
-                </p>
-                <p className="text-lg text-white font-light">
-                  +1 (234) 567-890
-                </p>
-              </div>
-
-              <div className="flex gap-6 text-amber-500">
-                <Facebook
-                  size={20}
-                  className="hover:text-white transition-colors"
-                />
-                <Instagram
-                  size={20}
-                  className="hover:text-white transition-colors"
-                />
-                <Twitter
-                  size={20}
-                  className="hover:text-white transition-colors"
-                />
+                {/* Social Icons */}
+                <div className="flex gap-5 pb-1">
+                  <SocialLink href="#" Icon={Facebook} />
+                  <SocialLink href="#" Icon={Instagram} />
+                  <SocialLink href="#" Icon={Twitter} />
+                </div>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+// Minimalist Social Link Component
+function SocialLink({ href, Icon }) {
+  return (
+    <a
+      href={href}
+      className="text-white/40 hover:text-amber-500 transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Icon size={20} strokeWidth={1.5} />
+    </a>
   );
 }

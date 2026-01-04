@@ -1,24 +1,22 @@
-// import { useRestaurant } from "../hooks/useRestaurant";
-// import useRestaurant from "@/hooks/useRestaurant";
 import HeroVideoSection from "../components/HeroVideoSection";
 import MenuPreviewSection from "../components/MenuPreviewSection";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import Reservation from "./Reservation";
 
 import LuxuryCeoSection from "./LuxuryCeoSection";
 import ContactUs from "./ContactUs";
+import useRestaurant from "@/hooks/useRestaurant";
 
 export default function Home() {
   // const [data, isLoading] = useRestaurant();
-  const { data: restaurantData = [], isLoading } = useQuery({
-    queryKey: ["restaurant"],
-    queryFn: async () => {
-      const res = await axios.get("/public/restaurant.json");
-      return res.data;
-    },
-  });
-  // console.log(restaurantData?.[0].menu?.[0].price);
+  // const { data: restaurantData = [], isLoading } = useQuery({
+  //   queryKey: ["restaurant"],
+  //   queryFn: async () => {
+  //     const res = await axios.get("/public/restaurant.json");
+  //     return res.data;
+  //   },
+  // });
+  const [restaurantData, isLoading] = useRestaurant();
+
   if (isLoading) {
     return (
       <div className="h-[80vh] flex items-center justify-center">
@@ -30,7 +28,7 @@ export default function Home() {
   return (
     <>
       <HeroVideoSection restaurantData={restaurantData} />
-      <MenuPreviewSection menu={restaurantData?.[0].menu} />
+      <MenuPreviewSection menu={restaurantData?.[0].dishes} />
       <Reservation />
       <LuxuryCeoSection />
       <ContactUs />

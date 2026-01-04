@@ -4,11 +4,11 @@
     "restaurantImg1": "foodix-italian",
     "restaurantImg2": "foodix-italian",
     "reservationImg": "",
-    "name": "Foodix Italian Bistro",
+    "heroRestaName": "Foodix Italian Bistro",
     "tagline": "Authentic Italian Taste",
     "heroVideo": "restaurant.mp4",
     "bookTableImg": "",
-    "ceoImg": "",
+    "ceoImg": "https://i.ibb.co.com/hJrgc9jH/ceo-Img.jpg",
     "contactUs": {
       "phone": "9283749372",
       "location": "Via Serlas 546, 6700 St.Moritz, Switzerland",
@@ -21,7 +21,7 @@
       "x": "",
       "discord": ""
     },
-    "menu": [
+    "dishes": [
       {
         "id": 1,
         "title": "Margherita Pizza",
@@ -49,6 +49,50 @@
         "description": "Fresh mozzarella & basil",
         "price": 12,
         "image": "https://i.ibb.co.com/tT3q2mQG/menu4.jpg"
+      }
+    ],
+    "menu": [
+      {
+        "id": 1,
+        "category": "Mains",
+        "title": "BEEF BURGER MEAL",
+        "price": 32,
+        "desc": "Classic greek salad, barrel aged feta cheese, bread"
+      },
+      {
+        "id": 2,
+        "category": "Mains",
+        "title": "ROASTED LAMB RUMP",
+        "price": 25,
+        "desc": "Grilled lamb cutlets, pomegranate glaze, butternut squash"
+      },
+      {
+        "id": 3,
+        "category": "Starters",
+        "title": "PAN SEARED SCALLOPS",
+        "price": 29,
+        "desc": "Saffron, celeriac puree, black pudding, olive oil"
+      },
+      {
+        "id": 4,
+        "category": "Mains",
+        "title": "PAN SEARED SEA BASS",
+        "price": 38,
+        "desc": "Saffron and mussel’s broth, new potatoes, edamame beans"
+      },
+      {
+        "id": 5,
+        "category": "Desserts",
+        "title": "CITRUS CURED SALMON",
+        "price": 41,
+        "desc": "Horseradish creme fraiche, beetroot mousse, oil"
+      },
+      {
+        "id": 6,
+        "category": "Starters",
+        "title": "BRAISED OX CHEEK RAVIOLI",
+        "price": 23,
+        "desc": "Mediterranean olives casserole, celeriac puree, mushrooms"
       }
     ]
   }

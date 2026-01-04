@@ -13,7 +13,7 @@ const BookATable = () => {
 
   return (
     <>
-      <section id="book-a-table" className="py-24 bg-[#0f1a19] px-6">
+      <section id="book-a-table" className="py-24  bg-[#051117] px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Side: Content */}

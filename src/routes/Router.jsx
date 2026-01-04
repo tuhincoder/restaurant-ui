@@ -5,6 +5,7 @@ import Menu from "@/pages/Menu";
 import AboutUs from "@/pages/AboutUs";
 import Reservation from "@/pages/Reservation";
 import BookATable from "@/pages/BookATable";
+import ContactUs from "@/pages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
         path: "aboutUs",
         element: <AboutUs />,
       },
+      {
+        path: "contact",
+        element: <ContactUs />,
+      },
+
       {
         path: "reservation",
         element: <Reservation />,

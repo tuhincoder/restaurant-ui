@@ -1,21 +1,18 @@
-// import useAxiosPublic from "@/api/axios";
+import useAxiosPublic from "@/api/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
-// import axios from "@/api/axios";
-// import axios from "axios";
-// import { useQuery } from "@tanstack/react-query";
+const useRestaurant = () => {
+  const { data: restaurantData, isLoading } = useQuery({
+    queryKey: ["restaurant"],
+    queryFn: async () => {
+      const res = await useAxiosPublic.get("");
+      return res.data;
+    },
+  });
+  return [restaurantData, isLoading];
+};
 
-// export const useRestaurant = () => {
-//   return useQuery({
-//     queryKey: ["restaurant"],
-//     queryFn: async () => {
-//       const { data } = await axios.get("/public/restaurant.json");
-//       return data;
-//     },
-//     staleTime: 1000 * 60 * 10, // 10 min
-//     cacheTime: 1000 * 60 * 30, // 30 min
-//     retry: 1,
-//   });
-// };
+export default useRestaurant;
 
 // const useRestaurant = () => {
 //   const {
