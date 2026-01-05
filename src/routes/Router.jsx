@@ -6,11 +6,13 @@ import AboutUs from "@/pages/AboutUs";
 import Reservation from "@/pages/Reservation";
 import BookATable from "@/pages/BookATable";
 import ContactUs from "@/pages/ContactUs";
+import ErrorPage from "@/pages/shared/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,

@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
+import useMenu from "@/hooks/useMenu";
+import Loading from "@/components/loader/Loading";
+
 // SignatureSection import thakle thakbe, na thakle bad diye test korben
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState("Mains");
+  const [menu, isLoading] = useMenu();
 
-  const { data: menuItems, isLoading } = useQuery({
-    queryKey: ["menuData"],
-    queryFn: fetchMenuData,
-  });
+  // const { data: menuItems } = useQuery({
+  //   queryKey: ["menuData"],
+  //   queryFn: fetchMenuData,
+  // });
+  // console.log(menuItems);
+  const filteredItems = menu?.filter((item) => item.category === activeTab);
+  console.log(filteredItems);
 
-  const filteredItems = menuItems?.filter(
-    (item) => item.category === activeTab
-  );
-
-  if (isLoading)
-    return (
-      <div className="h-96 flex justify-center items-center bg-[#050c10]">
-        <span className="loading loading-spinner text-amber-500"></span>
-      </div>
-    );
+  if (isLoading) return <Loading />;
 
   return (
     <section className="bg-[#051117] text-white py-16 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
@@ -109,51 +106,51 @@ const Menu = () => {
 };
 
 // Mock data update for better testing
-const fetchMenuData = async () => {
-  return [
-    {
-      id: 1,
-      category: "Mains",
-      title: "BEEF BURGER MEAL",
-      price: 32,
-      desc: "Classic greek salad, barrel aged feta cheese, bread",
-    },
-    {
-      id: 2,
-      category: "Mains",
-      title: "ROASTED LAMB RUMP",
-      price: 25,
-      desc: "Grilled lamb cutlets, pomegranate glaze, butternut squash",
-    },
-    {
-      id: 3,
-      category: "Starters",
-      title: "PAN SEARED SCALLOPS",
-      price: 29,
-      desc: "Saffron, celeriac puree, black pudding, olive oil",
-    },
-    {
-      id: 4,
-      category: "Mains",
-      title: "PAN SEARED SEA BASS",
-      price: 38,
-      desc: "Saffron and mussel’s broth, new potatoes, edamame beans",
-    },
-    {
-      id: 5,
-      category: "Desserts",
-      title: "CITRUS CURED SALMON",
-      price: 41,
-      desc: "Horseradish creme fraiche, beetroot mousse, oil",
-    },
-    {
-      id: 6,
-      category: "Starters",
-      title: "BRAISED OX CHEEK RAVIOLI",
-      price: 23,
-      desc: "Mediterranean olives casserole, celeriac puree, mushrooms",
-    },
-  ];
-};
+// const fetchMenuData = async () => {
+//   return [
+//     {
+//       id: 1,
+//       category: "Mains",
+//       title: "BEEF BURGER MEAL",
+//       price: 32,
+//       desc: "Classic greek salad, barrel aged feta cheese, bread",
+//     },
+//     {
+//       id: 2,
+//       category: "Mains",
+//       title: "ROASTED LAMB RUMP",
+//       price: 25,
+//       desc: "Grilled lamb cutlets, pomegranate glaze, butternut squash",
+//     },
+//     {
+//       id: 3,
+//       category: "Starters",
+//       title: "PAN SEARED SCALLOPS",
+//       price: 29,
+//       desc: "Saffron, celeriac puree, black pudding, olive oil",
+//     },
+//     {
+//       id: 4,
+//       category: "Mains",
+//       title: "PAN SEARED SEA BASS",
+//       price: 38,
+//       desc: "Saffron and mussel’s broth, new potatoes, edamame beans",
+//     },
+//     {
+//       id: 5,
+//       category: "Desserts",
+//       title: "CITRUS CURED SALMON",
+//       price: 41,
+//       desc: "Horseradish creme fraiche, beetroot mousse, oil",
+//     },
+//     {
+//       id: 6,
+//       category: "Starters",
+//       title: "BRAISED OX CHEEK RAVIOLI",
+//       price: 23,
+//       desc: "Mediterranean olives casserole, celeriac puree, mushrooms",
+//     },
+//   ];
+// };
 
 export default Menu;

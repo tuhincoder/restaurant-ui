@@ -1,8 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Plus } from "lucide-react";
+import useDishes from "@/hooks/useDishes";
 
-export default function MenuPreviewSection({ menu: dishes }) {
+export default function MenuPreviewSection() {
+  const [dishesData] = useDishes();
+  console.log(dishesData);
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -54,7 +58,7 @@ export default function MenuPreviewSection({ menu: dishes }) {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 lg:gap-8"
         >
-          {dishes?.map((dish) => (
+          {dishesData?.map((dish) => (
             <motion.div
               key={dish.id}
               variants={item}

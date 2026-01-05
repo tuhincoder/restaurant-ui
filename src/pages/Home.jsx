@@ -5,9 +5,10 @@ import Reservation from "./Reservation";
 import LuxuryCeoSection from "./LuxuryCeoSection";
 import ContactUs from "./ContactUs";
 import useRestaurant from "@/hooks/useRestaurant";
+import useDishes from "@/hooks/useDishes";
+import Loading from "@/components/loader/Loading";
 
 export default function Home() {
-  // const [data, isLoading] = useRestaurant();
   // const { data: restaurantData = [], isLoading } = useQuery({
   //   queryKey: ["restaurant"],
   //   queryFn: async () => {
@@ -16,19 +17,15 @@ export default function Home() {
   //   },
   // });
   const [restaurantData, isLoading] = useRestaurant();
+  const [dishesData] = useDishes();
+  console.log(dishesData);
 
-  if (isLoading) {
-    return (
-      <div className="h-[80vh] flex items-center justify-center">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
-    );
-  }
+  if (isLoading) return <Loading />;
 
   return (
     <>
       <HeroVideoSection restaurantData={restaurantData} />
-      <MenuPreviewSection menu={restaurantData?.[0].dishes} />
+      <MenuPreviewSection />
       <Reservation />
       <LuxuryCeoSection />
       <ContactUs />
