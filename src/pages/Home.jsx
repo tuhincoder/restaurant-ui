@@ -7,6 +7,7 @@ import ContactUs from "./ContactUs";
 import useRestaurant from "@/hooks/useRestaurant";
 import useDishes from "@/hooks/useDishes";
 import Loading from "@/components/loader/Loading";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   // const { data: restaurantData = [], isLoading } = useQuery({
@@ -24,6 +25,10 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Home | Restaurant</title>
+        <meta name="description" content="Fine dining experience" />
+      </Helmet>
       <HeroVideoSection restaurantData={restaurantData} />
       <MenuPreviewSection />
       <Reservation />
