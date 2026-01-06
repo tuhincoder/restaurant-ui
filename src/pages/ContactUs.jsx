@@ -10,7 +10,7 @@ import {
   Instagram,
   Twitter,
 } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
   const mapAddress = "Via Serlas 546, 7500 St. Moritz, Switzerland";
@@ -23,13 +23,13 @@ const ContactUs = () => {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Contact Us | Restaurant</title>
         <meta
           name="description"
           content="Get in touch with Restaurant Name for reservations, private dining, events, or general inquiries. Our team is ready to assist you."
         />
-      </Helmet>
+      </Helmet> */}
       <section
         id="contact"
         className="bg-[#051117] text-white py-16 md:py-14 px-6 md:px-12 lg:px-24 relative overflow-hidden"
