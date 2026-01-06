@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const Loading = () => {
   const [loading, setLoading] = useState(true);
 
-  // পেজ লোড হওয়ার পর ২.৫ সেকেন্ড পর এটি নিজে থেকেই চলে যাবে
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);

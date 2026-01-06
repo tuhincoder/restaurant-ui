@@ -19,17 +19,17 @@ const fetchCeoSectionData = async () => {
 const LuxuryCeoSection = () => {
   // const [restaurantData] = useRestaurant();
   // console.log(restaurantData);
-  const { data } = useQuery({
+  const { data: data = [], isLoading } = useQuery({
     queryKey: ["premiumCeoData"],
     queryFn: fetchCeoSectionData,
   });
 
-  // if (isLoading)
-  //   return (
-  //     <div className="h-96 flex justify-center items-center bg-[#051117]">
-  //       <span className="loading loading-spinner text-amber-500 w-12"></span>
-  //     </div>
-  //   );
+  if (isLoading)
+    return (
+      <div className="h-96 flex justify-center items-center bg-[#050c10] ">
+        <span className="loading loading-spinner text-amber-500 w-12"></span>
+      </div>
+    );
 
   return (
     <section className="relative bg-[#051117] text-white py-20 lg:py-10 px-6 overflow-hidden">
