@@ -11,6 +11,7 @@ const Reservation = () => {
         setTimeout(() => resolve(newBooking), 1500)
       );
     },
+
     onSuccess: () => alert("Table booked successfully!"),
   });
 
@@ -40,9 +41,9 @@ const Reservation = () => {
         />
       </Helmet>
 
-      <section className="relative bg-[#051117] text-white  py-16 md:pt-32 px-6 lg:px-12 overflow-hidden">
+      <section className="relative bg-[#051117] text-white  py-14 md:pt-28 px-6 lg:px-12 overflow-hidden">
         {/* 1. Subtle Background Text (Optimized for all screens) */}
-        <div className="absolute top-10 left-0 text-[12vw] font-serif font-black opacity-[0.02] tracking-[0.2em] pointer-events-none select-none uppercase leading-none">
+        <div className="absolute top-20 left-0 text-[12vw] font-serif font-black opacity-[0.02] tracking-[0.2em] pointer-events-none select-none uppercase leading-none">
           Reservation
         </div>
 

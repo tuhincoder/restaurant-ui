@@ -4,11 +4,18 @@
     "restaurantImg1": "foodix-italian",
     "restaurantImg2": "foodix-italian",
     "reservationImg": "",
-    "heroRestaName": "Foodix Italian Bistro",
+    "heroRestName": "Foodix Italian Bistro",
     "tagline": "Authentic Italian Taste",
     "heroVideo": "restaurant.mp4",
     "bookTableImg": "",
-    "ceoImg": "https://i.ibb.co.com/hJrgc9jH/ceo-Img.jpg",
+    "ceoSection": {
+      "ceoImg": "https://i.ibb.co.com/hJrgc9jH/ceo-Img.jpg",
+      "ceoWithRestaurantImg": "https://i.ibb.co.com/bR70Mws5/ceowithrestaurant.jpg",
+      "subtitle": "Our Culinary Philosophy",
+      "title": "RESTAURANT CEO TIPS",
+      "description": "Mastering the art of flavor requires patience and precision. Our CEO believes that every ingredient tells a story, and every plate is a canvas for emotion and excellence.",
+      "ctaText": "EXPLORE MORE"
+    },
     "contactUs": {
       "phone": "9283749372",
       "location": "Via Serlas 546, 6700 St.Moritz, Switzerland",

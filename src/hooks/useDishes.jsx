@@ -9,9 +9,9 @@ const useDishes = () => {
       const res = await axiosPublic.get("/dishes");
       return res.data;
     },
-    staleTime: 1000 * 60 * 10, // 10 min
-    cacheTime: 1000 * 60 * 30, // 30 min
-    retry: 1,
+    // staleTime: 1000 * 60 * 10, // 10 min
+    // cacheTime: 1000 * 60 * 30, // 30 min
+    // retry: 1,
   });
   return [dishesData];
 };

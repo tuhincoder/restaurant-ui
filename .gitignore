@@ -91,3 +91,4 @@ Thumbs.db
 # Vite timestamp logs
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+.vercel

@@ -2,14 +2,12 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { ArrowRight, Quote } from "lucide-react";
+import ceoimg1 from "../assets/images/ceoSection/ceoImg.jpg";
+import ceoWithRestaurantImg from "../assets/images/ceoSection/ceowithrestaurant.jpg";
 
 // Mock API Call
 const fetchCeoSectionData = async () => {
   return {
-    ceoImage:
-      "https://images.unsplash.com/photo-1577214495773-51465474ff21?q=80&w=1000&auto=format&fit=crop",
-    foodImage:
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1000&auto=format&fit=crop",
     subtitle: "Our Culinary Philosophy",
     title: "RESTAURANT CEO TIPS",
     description:
@@ -19,17 +17,19 @@ const fetchCeoSectionData = async () => {
 };
 
 const LuxuryCeoSection = () => {
-  const { data, isLoading } = useQuery({
+  // const [restaurantData] = useRestaurant();
+  // console.log(restaurantData);
+  const { data } = useQuery({
     queryKey: ["premiumCeoData"],
     queryFn: fetchCeoSectionData,
   });
 
-  if (isLoading)
-    return (
-      <div className="h-96 flex justify-center items-center bg-[#051117]">
-        <span className="loading loading-spinner text-amber-500 w-12"></span>
-      </div>
-    );
+  // if (isLoading)
+  //   return (
+  //     <div className="h-96 flex justify-center items-center bg-[#051117]">
+  //       <span className="loading loading-spinner text-amber-500 w-12"></span>
+  //     </div>
+  //   );
 
   return (
     <section className="relative bg-[#051117] text-white py-20 lg:py-10 px-6 overflow-hidden">
@@ -50,7 +50,7 @@ const LuxuryCeoSection = () => {
             <div className="absolute -inset-3 border border-amber-500/20 rounded-xl translate-x-2 translate-y-2"></div>
             <div className="relative h-full overflow-hidden rounded-xl shadow-2xl">
               <img
-                src={data.ceoImage}
+                src={ceoimg1}
                 alt="CEO"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
               />
@@ -69,7 +69,7 @@ const LuxuryCeoSection = () => {
           >
             <div className="relative h-full rounded-xl overflow-hidden group">
               <img
-                src={data.foodImage}
+                src={ceoWithRestaurantImg}
                 alt="Food"
                 className="w-full h-full object-cover brightness-50 group-hover:brightness-90 group-hover:scale-110 transition duration-1000"
               />

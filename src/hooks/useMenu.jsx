@@ -7,12 +7,12 @@ const useMenu = () => {
     queryKey: ["menu"],
     queryFn: async () => {
       const res = await axiosPublic.get("/menu");
-      // console.log(res.data);
+      console.log(res.data);
       return res.data;
     },
-    staleTime: 1000 * 60 * 10, // 10 min
-    cacheTime: 1000 * 60 * 30, // 30 min
-    retry: 1,
+    // staleTime: 1000 * 60 * 10, // 10 min
+    // cacheTime: 1000 * 60 * 30, // 30 min
+    // retry: 1,
   });
   return [menu, isLoading];
 };

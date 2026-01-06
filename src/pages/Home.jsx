@@ -1,7 +1,6 @@
 import HeroVideoSection from "../components/HeroVideoSection";
 import MenuPreviewSection from "../components/MenuPreviewSection";
 import Reservation from "./Reservation";
-
 import LuxuryCeoSection from "./LuxuryCeoSection";
 import ContactUs from "./ContactUs";
 import useRestaurant from "@/hooks/useRestaurant";

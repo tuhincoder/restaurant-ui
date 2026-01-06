@@ -23,7 +23,7 @@ export default function MenuPreviewSection() {
   return (
     <section
       id="menu"
-      className="bg-[#051117] py-20 md:py-16 px-6 overflow-hidden"
+      className="bg-[#051117] pt-20 md:pt-16 px-6 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* --- Header: Left Aligned for Modern Feel --- */}
