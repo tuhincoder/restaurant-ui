@@ -46,7 +46,7 @@ export default function Navbar() {
               <UtensilsCrossed size={20} className="text-black" />
             </div>
             <span className="text-2xl font-serif font-bold tracking-tighter text-white">
-              FOODIX<span className="text-amber-500">.</span>
+              PIZZA<span className="text-amber-500">.</span>
             </span>
           </NavLink>
         </div>

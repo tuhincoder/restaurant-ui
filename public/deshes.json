@@ -1,26 +1,62 @@
 [
   {
-    "title": "Margherita Pizza",
-    "description": "Fresh mozzarella & basil",
+    "title": "Family Margherita Special",
+    "description": "Premium fresh mozzarella & fresh organic basil with olive oil.",
+    "longDescription": "Our signature family Margherita is made with handmade thin crust dough, topped with imported Italian mozzarella, fresh basil leaves from our garden, and a drizzle of extra virgin olive oil.",
     "price": 12,
-    "image": "https://i.ibb.co.com/TDk7nDQB/menu1.jpg"
+    "category": "Classic",
+    "rating": 4.8,
+    "ingredients": ["Fresh Mozzarella", "Basil", "Olive Oil", "Tomato Sauce"],
+    "image": "https://i.ibb.co.com/dwzfh4Mq/family-Pizza1.jpg"
   },
   {
-    "title": "Margherita Pizza",
-    "description": "Fresh mozzarella & basil",
+    "title": "Double Cheese Blast",
+    "description": "A heavy layer of cheddar and mozzarella for cheese lovers.",
+    "longDescription": "The ultimate comfort food. This pizza features a thick layer of melted cheddar inside the crust and gooey mozzarella on top. Perfect for a family movie night!",
     "price": 15,
-    "image": "https://i.ibb.co.com/bRjmSFMd/menu2.jpg"
+    "category": "Cheese Lover",
+    "rating": 4.9,
+    "ingredients": ["Cheddar", "Mozzarella", "Parmesan", "Herbs"],
+    "image": "https://i.ibb.co.com/Q3j4pLHg/family-Pizza2.jpg"
   },
   {
-    "title": "Margherita Pizza",
-    "description": "Fresh mozzarella & basil",
-    "price": 11,
+    "title": "Spicy Chicken Supreme",
+    "description": "Spicy chicken chunks with capsicum and red paprika.",
+    "longDescription": "If your family loves heat, this is the one. Loaded with marinated spicy chicken, crunchy capsicum, onions, and spicy red paprika flakes.",
+    "price": 14,
+    "category": "Spicy",
+    "rating": 4.7,
+    "ingredients": ["Spicy Chicken", "Capsicum", "Onion", "Red Paprika"],
     "image": "https://i.ibb.co.com/CFrTs07/menu3.jpg"
   },
   {
-    "title": "Margherita Pizza",
-    "description": "Fresh mozzarella & basil",
-    "price": 12,
+    "title": "Garden Fresh Veggie",
+    "description": "Loaded with mushrooms, olives, and bell peppers.",
+    "longDescription": "A healthy yet delicious choice. Packed with fresh mushrooms, black olives, green bell peppers, and sweet corn on a whole wheat base.",
+    "price": 11,
+    "category": "Vegetarian",
+    "rating": 4.5,
+    "ingredients": ["Mushroom", "Olives", "Bell Pepper", "Corn"],
     "image": "https://i.ibb.co.com/tT3q2mQG/menu4.jpg"
+  },
+  {
+    "title": "BBQ Meat Feast",
+    "description": "Topped with BBQ chicken, beef pepperoni, and sausage.",
+    "longDescription": "The king of all meat pizzas. Features smoky BBQ sauce, tender chicken pieces, spicy beef pepperoni, and sliced Italian sausages.",
+    "price": 18,
+    "category": "Meat",
+    "rating": 5.0,
+    "ingredients": ["BBQ Chicken", "Beef Pepperoni", "Sausage", "BBQ Sauce"],
+    "image": "https://i.ibb.co.com/TDk7nDQB/menu1.jpg"
+  },
+  {
+    "title": "Creamy Seafood Delight",
+    "description": "Shrimp and calamari with a creamy white sauce base.",
+    "longDescription": "A premium choice for seafood fans. Made with fresh shrimp and calamari rings over a rich, creamy Alfredo white sauce base instead of tomato sauce.",
+    "price": 20,
+    "category": "Premium",
+    "rating": 4.6,
+    "ingredients": ["Shrimp", "Calamari", "White Sauce", "Garlic"],
+    "image": "https://i.ibb.co.com/bRjmSFMd/menu2.jpg"
   }
 ]

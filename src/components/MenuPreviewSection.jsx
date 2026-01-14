@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Plus } from "lucide-react";
 import useDishes from "@/hooks/useDishes";
+import { Link } from "react-router-dom";
 
 export default function MenuPreviewSection() {
   const [dishesData] = useDishes();
@@ -45,9 +46,11 @@ export default function MenuPreviewSection() {
               <span className="italic font-serif text-amber-500">Dishes</span>
             </motion.h2>
           </div>
-          <motion.button className="flex items-center gap-2 text-white/50 hover:text-amber-500 transition-colors uppercase text-[10px] tracking-widest font-bold">
-            View Full Menu <ArrowRight size={16} />
-          </motion.button>
+          <Link to={"/menu"}>
+            <motion.button className="flex items-center gap-2 text-white/50 hover:text-amber-500 transition-colors uppercase text-[10px] tracking-widest font-bold">
+              View Full Menu <ArrowRight size={16} />
+            </motion.button>
+          </Link>
         </div>
 
         {/* --- Menu Grid --- */}

@@ -32,7 +32,7 @@ export default function HeroVideoSection({ restaurantData }) {
             <div className="h-[2px] w-12 bg-amber-500"></div>
 
             <h1 className="text-white text-4xl md:text-7xl font-light tracking-tighter leading-[1.1]">
-              {restaurantData?.[0]?.name || "THE FOODIX"} <br />
+              {restaurantData?.[0]?.name || "YOUR FAMILY PIZZA"} <br />
               <span className="italic font-serif text-amber-500 text-3xl md:text-6xl">
                 Kitchen & Bar
               </span>

@@ -7,6 +7,7 @@ import Reservation from "@/pages/Reservation";
 import BookATable from "@/pages/BookATable";
 import ContactUs from "@/pages/ContactUs";
 import ErrorPage from "@/pages/shared/ErrorPage";
+import DishesDetails from "@/pages/menu/dishes/DishesDetails";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: "/singleDishes/:id",
+        element: <DishesDetails></DishesDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://restaurant-server-delta-lyart.vercel.app/dishes/${params.id}`
+          ),
       },
       {
         path: "menu",
