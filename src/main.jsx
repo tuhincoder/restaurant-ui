@@ -19,9 +19,11 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <HelmetProvider>
-        <RouterProvider router={router}></RouterProvider>
-      </HelmetProvider>
+      <div className="bg-[#051117]">
+        <HelmetProvider>
+          <RouterProvider router={router}></RouterProvider>
+        </HelmetProvider>
+      </div>
     </QueryClientProvider>
   </StrictMode>
 );

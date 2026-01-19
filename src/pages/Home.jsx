@@ -4,9 +4,9 @@ import Reservation from "./Reservation";
 import LuxuryCeoSection from "./LuxuryCeoSection";
 import ContactUs from "./ContactUs";
 import useRestaurant from "@/hooks/useRestaurant";
-import useDishes from "@/hooks/useDishes";
 import Loading from "@/components/loader/Loading";
 import { Helmet } from "react-helmet-async";
+import Menu from "./Menu";
 
 export default function Home() {
   // const { data: restaurantData = [], isLoading } = useQuery({
@@ -17,8 +17,8 @@ export default function Home() {
   //   },
   // });
   const [restaurantData, isLoading] = useRestaurant();
-  const [dishesData] = useDishes();
-  console.log(dishesData);
+  // const [dishesData] = useDishes();
+  // console.log(dishesData);
 
   if (isLoading) return <Loading />;
 
@@ -29,7 +29,7 @@ export default function Home() {
         <meta name="description" content="Fine dining experience" />
       </Helmet>
       <HeroVideoSection restaurantData={restaurantData} />
-      <MenuPreviewSection />
+      <Menu />
       <Reservation />
       <LuxuryCeoSection />
       <ContactUs />

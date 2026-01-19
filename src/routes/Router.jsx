@@ -1,13 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
-import Menu from "@/pages/Menu";
 import AboutUs from "@/pages/AboutUs";
 import Reservation from "@/pages/Reservation";
 import BookATable from "@/pages/BookATable";
 import ContactUs from "@/pages/ContactUs";
 import ErrorPage from "@/pages/shared/ErrorPage";
 import DishesDetails from "@/pages/menu/dishes/DishesDetails";
+import MenuPreviewSection from "@/components/MenuPreviewSection";
+import Hours from "@/pages/hours/Hours";
 
 const router = createBrowserRouter([
   {
@@ -24,12 +25,12 @@ const router = createBrowserRouter([
         element: <DishesDetails></DishesDetails>,
         loader: ({ params }) =>
           fetch(
-            `https://restaurant-server-delta-lyart.vercel.app/dishes/${params.id}`
+            `https://restaurant-server-delta-lyart.vercel.app/singleDishes/${params.id}`
           ),
       },
       {
-        path: "menu",
-        element: <Menu />,
+        path: "dishes",
+        element: <MenuPreviewSection />,
       },
       {
         path: "aboutUs",
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactUs />,
+      },
+      {
+        path: "hours",
+        element: <Hours />,
       },
 
       {

@@ -6,14 +6,14 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
-      // colors: {
-      //   "dark-teal": "#114b57", // custom color name
-      // },
+      colors: {
+        "main-bg": "#051117",
+      },
     },
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ["light", "dark"],
+    themes: [],
   },
 };
 

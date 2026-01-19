@@ -31,7 +31,7 @@ export default function HeroVideoSection({ restaurantData }) {
           >
             <div className="h-[2px] w-12 bg-amber-500"></div>
 
-            <h1 className="text-white text-4xl md:text-7xl font-light tracking-tighter leading-[1.1]">
+            <h1 className="text-white text-4xl md:text-7xl font-light tracking-tighter leading-[1.1] uppercase">
               {restaurantData?.[0]?.name || "YOUR FAMILY PIZZA"} <br />
               <span className="italic font-serif text-amber-500 text-3xl md:text-6xl">
                 Kitchen & Bar
@@ -43,25 +43,25 @@ export default function HeroVideoSection({ restaurantData }) {
                 "Experience a symphony of flavors where traditional heritage meets modern culinary innovation."}
             </p>
 
-            {/* Quick Info */}
-            <div className="flex flex-wrap gap-4 pt-2 text-[10px] uppercase tracking-widest text-amber-500/80 font-semibold">
+            {/* Quick Info - Updated with your Location & Hours */}
+            <div className="flex flex-wrap gap-4 pt-2 text-[10px] uppercase tracking-[0.2em] text-amber-500/80 font-bold">
               <div className="flex items-center gap-1.5">
-                <MapPin size={12} /> St. Moritz, SZ
+                <MapPin size={14} className="text-amber-500" /> Kenna, WV
               </div>
               <div className="flex items-center gap-1.5">
-                <Clock size={12} /> 11 AM - 10 PM
+                <Clock size={14} className="text-amber-500" /> 11 AM - 9 PM
               </div>
             </div>
           </motion.div>
 
-          {/* Action Circle: Mobile-e size komano hoyeche jate video beshi dhake na */}
+          {/* Action Circle: Desktop only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
             className="hidden md:flex flex-col items-center lg:items-end order-2"
           >
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 p-12 md:p-16 rounded-full aspect-square flex flex-col items-center justify-center text-center group hover:border-amber-500 transition-all duration-700">
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 p-12 md:p-16 rounded-full aspect-square flex flex-col items-center justify-center text-center group hover:border-amber-500 transition-all duration-700 shadow-2xl shadow-black/50">
               <p className="text-white text-[10px] tracking-[0.4em] uppercase mb-4 opacity-70">
                 Discover
               </p>
@@ -71,19 +71,19 @@ export default function HeroVideoSection({ restaurantData }) {
 
               <motion.a
                 href="#menu"
-                className="px-6 py-3 bg-amber-500 text-black text-[10px] font-bold tracking-[0.3em] uppercase flex items-center gap-2"
+                className="px-6 py-3 bg-amber-500 text-black text-[10px] font-bold tracking-[0.3em] uppercase flex items-center gap-2 hover:bg-white transition-colors"
               >
                 View Menu <ArrowRight size={14} />
               </motion.a>
             </div>
           </motion.div>
 
-          {/* Mobile View Menu Button: Circle er bodole simple button for mobile accessibility */}
+          {/* Mobile View Menu Button */}
           <div className="md:hidden order-2 pt-4">
             <motion.a
               href="#menu"
               whileTap={{ scale: 0.95 }}
-              className="w-full py-4 bg-amber-500 text-black text-[11px] font-bold tracking-[0.3em] uppercase flex items-center justify-center gap-2 rounded-sm"
+              className="w-full py-4 bg-amber-500 text-black text-[11px] font-bold tracking-[0.3em] uppercase flex items-center justify-center gap-2 rounded-sm shadow-lg shadow-amber-500/20"
             >
               Explore Our Menu <ArrowRight size={16} />
             </motion.a>
@@ -94,7 +94,7 @@ export default function HeroVideoSection({ restaurantData }) {
       {/* Scroll Indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
         <motion.div
-          animate={{ height: [20, 40, 20] }}
+          animate={{ height: [20, 40, 20], opacity: [0.3, 1, 0.3] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="w-[1px] bg-gradient-to-b from-amber-500 to-transparent"
         />
