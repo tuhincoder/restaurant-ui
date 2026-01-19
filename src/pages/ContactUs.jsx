@@ -10,7 +10,7 @@ import {
   Instagram,
   Twitter,
 } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const ContactUs = () => {
   const mapAddress = "975 Kentuck Rd, Kenna, WV, United States";

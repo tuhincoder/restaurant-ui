@@ -5,8 +5,10 @@ import LuxuryCeoSection from "./LuxuryCeoSection";
 import ContactUs from "./ContactUs";
 import useRestaurant from "@/hooks/useRestaurant";
 import Loading from "@/components/loader/Loading";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 import Menu from "./Menu";
+import MenuPicture from "./menu/MenuPicture";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   // const { data: restaurantData = [], isLoading } = useQuery({
@@ -30,6 +32,7 @@ export default function Home() {
       </Helmet>
       <HeroVideoSection restaurantData={restaurantData} />
       <Menu />
+      <MenuPicture />
       <Reservation />
       <LuxuryCeoSection />
       <ContactUs />

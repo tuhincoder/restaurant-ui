@@ -2,7 +2,7 @@ import React from "react";
 import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Calendar, Users, Clock, ChevronDown } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const Reservation = () => {
   const mutation = useMutation({

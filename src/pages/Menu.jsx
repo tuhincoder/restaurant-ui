@@ -2,8 +2,9 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useMenu from "@/hooks/useMenu";
 import Loading from "@/components/loader/Loading";
-import { Helmet } from "react-helmet-async";
+
 import { ArrowRight, ChevronDown } from "lucide-react"; // আইকন যোগ করা হয়েছে
+import { Helmet } from "react-helmet";
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState("Pizza");
