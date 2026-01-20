@@ -29,7 +29,7 @@ const router = createBrowserRouter([
           ),
       },
       {
-        path: "dishes",
+        path: "menu",
         element: <MenuPreviewSection />,
       },
       {

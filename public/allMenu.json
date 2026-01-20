@@ -1,0 +1,602 @@
+[
+  {
+    "category": "Drinks",
+    "title": "1 Liter Diet Coke",
+    "price": 1.99,
+    "desc": "Refreshing low-calorie cola in 1 liter bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "2 Liters Cherry Coke",
+    "price": 3.29,
+    "desc": "Classic cherry-flavored cola for sharing"
+  },
+  {
+    "category": "Drinks",
+    "title": "2 Liters Coke",
+    "price": 3.29,
+    "desc": "Large 2-liter bottle of classic Coca-Cola"
+  },
+  {
+    "category": "Drinks",
+    "title": "2 Liters Diet Coke",
+    "price": 3.29,
+    "desc": "Sugar-free classic cola in 2 liters"
+  },
+  {
+    "category": "Drinks",
+    "title": "2 Liters Fanta",
+    "price": 3.29,
+    "desc": "Fruity orange soda in a large 2-liter bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "2 Liters Root Beer",
+    "price": 3.29,
+    "desc": "Classic root beer soda, perfect for gatherings"
+  },
+  {
+    "category": "Drinks",
+    "title": "2 Liters Sprite",
+    "price": 3.29,
+    "desc": "Refreshing lemon-lime soda in 2 liters"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Cherry Coke",
+    "price": 1.89,
+    "desc": "Single-serve 20oz bottle of cherry cola"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Coke",
+    "price": 1.89,
+    "desc": "Classic 20oz Coca-Cola, perfect on the go"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Coke Zero",
+    "price": 1.89,
+    "desc": "Sugar-free cola in a convenient 20oz bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Diet Coke",
+    "price": 1.89,
+    "desc": "Low-calorie Coke in a single 20oz bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Fanta",
+    "price": 1.89,
+    "desc": "Single-serve fruity orange soda bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Fanta Grape",
+    "price": 1.89,
+    "desc": "Grape-flavored Fanta in 20oz bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Ginger Ale",
+    "price": 1.89,
+    "desc": "Crisp and refreshing ginger ale in 20oz"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Mello Yellow",
+    "price": 1.89,
+    "desc": "Citrus-flavored soda in 20oz bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Pibb Xtra",
+    "price": 1.89,
+    "desc": "Bold cherry-flavored soda in 20oz bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Root Beer",
+    "price": 1.89,
+    "desc": "Classic root beer soda for individual serving"
+  },
+  {
+    "category": "Drinks",
+    "title": "20 Oz Soda Sprite",
+    "price": 1.89,
+    "desc": "Lemon-lime soda in a convenient 20oz bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "Body Armor Lite Peach Mango",
+    "price": 2.59,
+    "desc": "Lightly sweetened sports drink with peach mango flavor"
+  },
+  {
+    "category": "Drinks",
+    "title": "Body Armor Orange Mango",
+    "price": 2.59,
+    "desc": "Hydrating sports drink with tropical orange mango flavor"
+  },
+  {
+    "category": "Drinks",
+    "title": "Can Of Soda Cherry Coke",
+    "price": 0.99,
+    "desc": "Classic cherry cola in convenient can"
+  },
+  {
+    "category": "Drinks",
+    "title": "Can Of Soda Coke",
+    "price": 0.99,
+    "desc": "Single-serve classic Coca-Cola can"
+  },
+  {
+    "category": "Drinks",
+    "title": "Can Of Soda Diet Coke",
+    "price": 0.99,
+    "desc": "Sugar-free cola in a can"
+  },
+  {
+    "category": "Drinks",
+    "title": "Can Of Soda Diet Dr Pepper",
+    "price": 0.99,
+    "desc": "Low-calorie Dr Pepper in a single can"
+  },
+  {
+    "category": "Drinks",
+    "title": "Can Of Soda Fanta",
+    "price": 0.99,
+    "desc": "Single-serve fruity soda can"
+  },
+  {
+    "category": "Drinks",
+    "title": "Can Of Soda Root Beer",
+    "price": 0.99,
+    "desc": "Classic root beer in a convenient can"
+  },
+  {
+    "category": "Drinks",
+    "title": "Can Of Soda Sprite",
+    "price": 0.99,
+    "desc": "Refreshing lemon-lime soda in a can"
+  },
+  {
+    "category": "Drinks",
+    "title": "Dasani",
+    "price": 1.39,
+    "desc": "Pure bottled water to keep you hydrated"
+  },
+  {
+    "category": "Drinks",
+    "title": "Fruit Punch Lemonade",
+    "price": 1.89,
+    "desc": "Sweet and tangy fruit punch lemonade"
+  },
+  {
+    "category": "Drinks",
+    "title": "Fruit Punch Pink Lemonade",
+    "price": 1.89,
+    "desc": "Refreshing pink lemonade with fruit flavors"
+  },
+  {
+    "category": "Drinks",
+    "title": "Fruit Punch Punch",
+    "price": 1.89,
+    "desc": "Classic fruit punch for a refreshing drink"
+  },
+  {
+    "category": "Drinks",
+    "title": "Full Throttle",
+    "price": 2.7,
+    "desc": "High-energy citrus-flavored energy drink"
+  },
+  {
+    "category": "Drinks",
+    "title": "Glass Bottles Coke",
+    "price": 1.99,
+    "desc": "Classic Coca-Cola in a glass bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "Glass Bottles Fanta",
+    "price": 1.99,
+    "desc": "Fruity soda in a glass bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "Glass Bottles Sprite",
+    "price": 1.99,
+    "desc": "Lemon-lime soda in a glass bottle"
+  },
+  {
+    "category": "Drinks",
+    "title": "Juices Apple",
+    "price": 1.95,
+    "desc": "100% pure apple juice"
+  },
+  {
+    "category": "Drinks",
+    "title": "Juices Orange",
+    "price": 1.95,
+    "desc": "Freshly squeezed orange juice"
+  },
+  {
+    "category": "Drinks",
+    "title": "Monster Green",
+    "price": 2.7,
+    "desc": "High-energy green Monster drink"
+  },
+  {
+    "category": "Drinks",
+    "title": "NOS",
+    "price": 2.7,
+    "desc": "High-performance energy drink"
+  },
+  {
+    "category": "Drinks",
+    "title": "Power Aid Blue",
+    "price": 1.69,
+    "desc": "Blue sports drink to stay hydrated"
+  },
+  {
+    "category": "Drinks",
+    "title": "Power Aid Orange",
+    "price": 1.69,
+    "desc": "Orange-flavored electrolyte sports drink"
+  },
+  {
+    "category": "Drinks",
+    "title": "Power Aid Red",
+    "price": 1.69,
+    "desc": "Red fruit-flavored sports drink"
+  },
+  {
+    "category": "Drinks",
+    "title": "Tea Green",
+    "price": 2.19,
+    "desc": "Refreshing green tea beverage"
+  },
+  {
+    "category": "Drinks",
+    "title": "Tea Sweet",
+    "price": 2.19,
+    "desc": "Sweetened iced tea for a cool refreshment"
+  },
+  {
+    "category": "Drinks",
+    "title": "Tummy Yummies Big Berryblast",
+    "price": 1.39,
+    "desc": "Berry-flavored juice drink for kids"
+  },
+  {
+    "category": "Drinks",
+    "title": "Tummy Yummies Fruit Punch Party",
+    "price": 1.39,
+    "desc": "Fruit punch juice drink for kids"
+  },
+  {
+    "category": "Drinks",
+    "title": "Vitamin Water",
+    "price": 1.99,
+    "desc": "Fortified water with vitamins and minerals"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Just Cheese - 10\"",
+    "price": 7.99,
+    "desc": "Made with our delicious cheese blend and a robust tomato sauce"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Just Cheese - 12\"",
+    "price": 11.25,
+    "desc": "Made with our delicious cheese blend and a robust tomato sauce"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Just Cheese - 16\"",
+    "price": 14.99,
+    "desc": "Made with our delicious cheese blend and a robust tomato sauce"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Pepperoni & Cheese - 10\"",
+    "price": 9.25,
+    "desc": "And of course, sauce. Need more? Let us know!"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Pepperoni & Cheese - 12\"",
+    "price": 12.65,
+    "desc": "And of course, sauce. Need more? Let us know!"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Pepperoni & Cheese - 16\"",
+    "price": 16.99,
+    "desc": "And of course, sauce. Need more? Let us know!"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Supreme - 16\"",
+    "price": 24.99,
+    "desc": "Onions, green peppers, banana peppers, sausage, pepperoni, mushrooms, and cheese"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Supreme - 12\"",
+    "price": 18.99,
+    "desc": "Onions, green peppers, banana peppers, sausage, pepperoni, mushrooms, and cheese"
+  },
+  {
+    "category": "Classic-Pizzas",
+    "title": "Supreme - 10\"",
+    "price": 14.99,
+    "desc": "Onions, green peppers, banana peppers, sausage, pepperoni, mushrooms, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Veggie - 10\"",
+    "price": 12.99,
+    "desc": "Onions, green peppers, black olives, mushrooms, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Veggie - 12\"",
+    "price": 15.49,
+    "desc": "Onions, green peppers, black olives, mushrooms, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Veggie - 16\"",
+    "price": 21.99,
+    "desc": "Onions, green peppers, black olives, mushrooms, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Meat Lovers - 10\"",
+    "price": 12.99,
+    "desc": "Pepperoni, sausage, bacon, ham, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Meat Lovers - 12\"",
+    "price": 15.49,
+    "desc": "Pepperoni, sausage, bacon, ham, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Meat Lovers - 16\"",
+    "price": 21.99,
+    "desc": "Pepperoni, sausage, bacon, ham, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Flyin' Hawaiian - 10\"",
+    "price": 12.99,
+    "desc": "Pineapple, ham, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Flyin' Hawaiian - 12\"",
+    "price": 15.49,
+    "desc": "Pineapple, ham, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Flyin' Hawaiian - 16\"",
+    "price": 21.99,
+    "desc": "Pineapple, ham, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Steak - 10\"",
+    "price": 12.99,
+    "desc": "Tender beef, green pepper, onions, mushrooms, cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Steak - 12\"",
+    "price": 15.49,
+    "desc": "Tender beef, green pepper, onions, mushrooms, cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Steak - 16\"",
+    "price": 21.99,
+    "desc": "Tender beef, green pepper, onions, mushrooms, cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Dill Pickle Ranch - 10\"",
+    "price": 12.99,
+    "desc": "Dill pickle chips, ranch dressing, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Dill Pickle Ranch - 12\"",
+    "price": 15.49,
+    "desc": "Dill pickle chips, ranch dressing, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Dill Pickle Ranch - 16\"",
+    "price": 21.99,
+    "desc": "Dill pickle chips, ranch dressing, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Bacon-Chicken-Ranch - 10\"",
+    "price": 12.99,
+    "desc": "Bacon, grilled chicken, ranch dressing, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Bacon-Chicken-Ranch - 12\"",
+    "price": 15.49,
+    "desc": "Bacon, grilled chicken, ranch dressing, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Bacon-Chicken-Ranch - 16\"",
+    "price": 21.99,
+    "desc": "Bacon, grilled chicken, ranch dressing, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Chicken Alfredo - 10\"",
+    "price": 12.99,
+    "desc": "Grilled chicken and cheese in a creamy Alfredo sauce"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Chicken Alfredo - 12\"",
+    "price": 15.49,
+    "desc": "Grilled chicken and cheese in a creamy Alfredo sauce"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Chicken Alfredo - 16\"",
+    "price": 21.99,
+    "desc": "Grilled chicken and cheese in a creamy Alfredo sauce"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "BBQ Chicken - 10\"",
+    "price": 12.99,
+    "desc": "BBQ chicken, bacon, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "BBQ Chicken - 12\"",
+    "price": 15.49,
+    "desc": "BBQ chicken, bacon, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "BBQ Chicken - 16\"",
+    "price": 21.99,
+    "desc": "BBQ chicken, bacon, and cheese"
+  },
+  {
+    "category": "Specialty-Favorites",
+    "title": "Cauliflower - 12\"",
+    "price": 15.49,
+    "desc": "Have a gluten allergy? No worries, we got you! With our cauliflower crust you can still enjoy premium ingredients."
+  },
+  {
+    "category": "6\"-Subs",
+    "title": "Steak Sub",
+    "price": 6.99,
+    "desc": "Tender steak with fresh veggies in a soft sub roll"
+  },
+  {
+    "category": "6\"-Subs",
+    "title": "Meatball Sub",
+    "price": 6.99,
+    "desc": "Classic meatballs with marinara sauce and cheese in a sub roll"
+  },
+  {
+    "category": "6\"-Subs",
+    "title": "Chicken-Bacon Alfredo Sub",
+    "price": 6.99,
+    "desc": "Grilled chicken, bacon, and creamy Alfredo sauce in a sub roll"
+  },
+  {
+    "category": "6\"-Subs",
+    "title": "Pizza Sub",
+    "price": 6.99,
+    "desc": "Pepperoni, marinara, and cheese baked in a sub roll"
+  },
+  {
+    "category": "Chicken",
+    "title": "6pc Dill Pickle Tenders",
+    "price": 5.99,
+    "desc": "Crispy hand-breaded pickle tenders served with dipping sauce"
+  },
+  {
+    "category": "Chicken",
+    "title": "Jumbo Wings",
+    "price": 9.99,
+    "desc": "Spicy or mild jumbo chicken wings, perfect for sharing"
+  },
+  {
+    "category": "Sides",
+    "title": "Pepperoni Rolls",
+    "price": 4.99,
+    "desc": "Soft rolls stuffed with pepperoni and cheese"
+  },
+  {
+    "category": "Sides",
+    "title": "Mac-N-Cheese Bowl",
+    "price": 6.99,
+    "desc": "Creamy macaroni and cheese served in a bowl"
+  },
+  {
+    "category": "Sides",
+    "title": "Tater Kegs",
+    "price": 4.49,
+    "desc": "Mini tater tots filled with cheese and bacon"
+  },
+  {
+    "category": "Sides",
+    "title": "Plain Waffle Fries",
+    "price": 3.99,
+    "desc": "Crispy golden waffle fries"
+  },
+  {
+    "category": "Sides",
+    "title": "Loaded Waffle Fries",
+    "price": 5.99,
+    "desc": "Waffle fries loaded with cheese, bacon, and green onions"
+  },
+  {
+    "category": "Sides",
+    "title": "Chicken Alfredo Bowl",
+    "price": 9.99,
+    "desc": "Grilled chicken served over creamy Alfredo pasta"
+  },
+  {
+    "category": "Sides",
+    "title": "Cheesy Garlic Bread",
+    "price": 3.99,
+    "desc": "Garlic bread topped with melted cheese"
+  },
+  {
+    "category": "Snacks",
+    "title": "Dill Pickle Snack Mix",
+    "price": 2.0,
+    "desc": "Crunchy snack mix with dill pickle flavor"
+  },
+  {
+    "category": "Desserts",
+    "title": "Cookie Pie",
+    "price": 6.99,
+    "desc": "Fresh baked cookie pie served warm"
+  },
+  {
+    "category": "Sauces",
+    "title": "Sauce Cup",
+    "price": 0.0,
+    "desc": "Single serving of our signature dipping sauce"
+  },
+  {
+    "category": "New-Item",
+    "title": "Stuffed Shells Bowl",
+    "price": 11.99,
+    "desc": "Three large shells stuffed with seasoned ricotta cheese in our premium sauce with a large meatball and topped with mozzarella cheese"
+  },
+  {
+    "category": "New-Item",
+    "title": "Fried Dill Pickle Chips",
+    "price": 8.99,
+    "desc": "Delicious deep fried pickle chips, hand breaded in house. Available Regular or Hot"
+  },
+  {
+    "category": "New-Item",
+    "title": "Cream Cheese Stuffed Jalapenos",
+    "price": 7.99,
+    "desc": "Half jalapenos stuffed with cream cheese, breaded, and deep fried to perfection"
+  }
+]

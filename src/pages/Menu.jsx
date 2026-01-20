@@ -5,6 +5,7 @@ import Loading from "@/components/loader/Loading";
 
 import { ArrowRight, ChevronDown } from "lucide-react"; // আইকন যোগ করা হয়েছে
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState("Pizza");
@@ -53,22 +54,23 @@ const Menu = () => {
 
         <div className="max-w-6xl mx-auto relative z-10">
           {/* --- TOP CTA BUTTON --- */}
-          <div className="flex justify-end mb-8">
-            <motion.button
-              whileHover={{ x: 5 }}
-              onClick={() =>
-                footerRef.current?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="group flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-amber-500/80 hover:text-amber-500 transition-all"
-            >
-              See All Categories{" "}
-              <ArrowRight
-                size={14}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </motion.button>
-          </div>
-
+          <a href="/menu">
+            <div className="flex justify-end mb-8">
+              <motion.button
+                whileHover={{ x: 5 }}
+                onClick={() =>
+                  footerRef.current?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="group flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-amber-500/80 hover:text-amber-500 transition-all"
+              >
+                See All Categories{" "}
+                <ArrowRight
+                  size={14}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </motion.button>
+            </div>
+          </a>
           <div className="text-center mb-12">
             <motion.p
               initial={{ opacity: 0 }}
