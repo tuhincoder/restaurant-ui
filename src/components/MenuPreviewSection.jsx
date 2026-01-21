@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Plus, ChevronDown } from "lucide-react";
 import useDishes from "@/hooks/useDishes";
 import { Link } from "react-router-dom";
-import AllMenu from "@/pages/menu/AllMenu";
 
 export default function MenuPreviewSection() {
   const [dishesData] = useDishes();
@@ -102,7 +101,6 @@ export default function MenuPreviewSection() {
           )}
         </div>
       </section>
-      <AllMenu />
     </>
   );
 }

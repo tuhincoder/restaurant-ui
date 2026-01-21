@@ -7,8 +7,8 @@ import BookATable from "@/pages/BookATable";
 import ContactUs from "@/pages/ContactUs";
 import ErrorPage from "@/pages/shared/ErrorPage";
 import DishesDetails from "@/pages/menu/dishes/DishesDetails";
-import MenuPreviewSection from "@/components/MenuPreviewSection";
 import Hours from "@/pages/hours/Hours";
+import AllMenu from "@/pages/menu/AllMenu";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "menu",
-        element: <MenuPreviewSection />,
+        element: <AllMenu />,
       },
       {
         path: "aboutUs",
