@@ -20,7 +20,7 @@ const Hours = () => {
         <title>Hours & Info | Your Family Pizza</title>
       </Helmet>
 
-      <section className="bg-[#051117] text-white py-20 px-6 md:px-12 lg:px-24 min-h-screen relative overflow-hidden">
+      <section className="bg-[#051117] text-white py-32 md:py-28 px-6 md:px-12 lg:px-24 min-h-screen relative overflow-hidden">
         {/* Background Glows for Premium Look */}
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none"></div>
 

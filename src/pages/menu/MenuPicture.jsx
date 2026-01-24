@@ -30,7 +30,7 @@ const MenuPicture = () => {
   );
 
   return (
-    <section className="bg-[#051117] py-8 md:py-16 overflow-hidden">
+    <section className="bg-[#051117]  overflow-hidden">
       {/* Header - Optimized for Mobile */}
       <div className="max-w-7xl mx-auto px-6 mb-6 md:mb-12 text-center">
         <motion.div

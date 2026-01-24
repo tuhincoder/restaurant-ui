@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useQuery, keepPreviousData } from "@tanstack/react-query"; // keepPreviousData ইম্পোর্ট করুন
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { Loader2, ArrowDown, ArrowUp } from "lucide-react";
 import axios from "axios";
 import MenuPreviewSection from "@/components/MenuPreviewSection";
@@ -21,29 +21,31 @@ const AllMenu = () => {
   ];
 
   const [activeCategory, setActiveCategory] = useState("Classic-Pizzas");
-  const [isMobile, setIsMobile] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
   const [displayCount, setDisplayCount] = useState(12);
-
-  const scrollRef = useRef(null);
   const menuTopRef = useRef(null);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const scrollContainerRef = useRef(null);
 
   // ক্যাটাগরি চেঞ্জ হলে 'Show More' কাউন্ট রিসেট হবে
   useEffect(() => {
     setDisplayCount(12);
+
+    // ক্যাটাগরি ক্লিক করলে মোবাইল ভিউতে সেটি যাতে স্ক্রিনের মাঝখানে আসে
+    if (scrollContainerRef.current) {
+      const activeBtn = scrollContainerRef.current.querySelector(".active-cat");
+      if (activeBtn) {
+        activeBtn.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
+      }
+    }
   }, [activeCategory]);
 
   const {
     data: menuData = [],
-    isLoading, // একদম প্রথমবার লোড
-    isFetching, // ব্যাকগ্রাউন্ডে ডাটা আপডেট হচ্ছে কি না
+    isLoading,
+    isFetching,
   } = useQuery({
     queryKey: ["menu", activeCategory],
     queryFn: async () => {
@@ -52,10 +54,9 @@ const AllMenu = () => {
       );
       return response.data;
     },
-    // --- এই সেটিংসগুলো বারবার লোডিং বন্ধ করবে ---
-    staleTime: 1000 * 60 * 10, // ১০ মিনিট পর্যন্ত ডাটা Fresh থাকবে (বারবার লোড হবে না)
-    gcTime: 1000 * 60 * 15, // ১৫ মিনিট ডাটা ক্যাশ-এ থাকবে
-    placeholderData: keepPreviousData, // ট্যাব চেঞ্জ করলে আগের ডাটা স্ক্রিনে রেখে দিবে, লোডার দেখাবে না
+    staleTime: 1000 * 60 * 10,
+    gcTime: 1000 * 60 * 15,
+    placeholderData: keepPreviousData,
   });
 
   const handleShowLess = () => {
@@ -66,13 +67,12 @@ const AllMenu = () => {
     });
   };
 
-  // ১. শুধুমাত্র একদম প্রথমবার যখন সাইটে আসবে তখন আপনার কাস্টম লোডিং দেখাবে
   if (isLoading) return <Loading />;
 
   return (
     <>
       <section
-        className="bg-[#051117] min-h-screen py-12 md:py-24 overflow-hidden"
+        className="bg-[#051117] min-h-screen pt-32 md:pt-28 overflow-hidden"
         ref={menuTopRef}
       >
         {/* Header */}
@@ -87,57 +87,61 @@ const AllMenu = () => {
           <div className="h-[1px] w-20 bg-amber-500/40 mx-auto mt-6"></div>
         </div>
 
-        {/* Filter Bar */}
+        {/* Filter Bar (Mobile User Friendly Version) */}
         <div className="sticky top-0 z-40 bg-[#051117]/95 backdrop-blur-md border-y border-white/5 py-4 mb-12">
           <div
-            className="max-w-7xl mx-auto px-4 overflow-hidden"
-            ref={scrollRef}
+            ref={scrollContainerRef}
+            className="max-w-7xl mx-auto px-4 flex flex-nowrap lg:flex-wrap lg:justify-center gap-3 overflow-x-auto no-scrollbar scroll-smooth"
+            style={{
+              msOverflowStyle: "none" /* IE and Edge */,
+              scrollbarWidth: "none" /* Firefox */,
+              WebkitOverflowScrolling: "touch" /* iOS momentum scroll */,
+            }}
           >
-            {/* ছোট একটি ইন্ডিকেটর যদি ব্যাকগ্রাউন্ডে ডাটা ফেচ হয় (ঐচ্ছিক) */}
-            {isFetching && !isLoading && (
-              <div className="absolute top-0 right-10">
-                <Loader2 className="animate-spin text-amber-500/20" size={14} />
-              </div>
-            )}
-
-            <motion.div
-              drag={isMobile ? "x" : false}
-              dragConstraints={scrollRef}
-              animate={isMobile && !isPaused ? { x: ["0%", "-50%"] } : { x: 0 }}
-              transition={{
-                x: { repeat: Infinity, duration: 25, ease: "linear" },
+            {/* CSS for hiding scrollbar in Chrome/Safari */}
+            <style
+              dangerouslySetInnerHTML={{
+                __html: `
+              .no-scrollbar::-webkit-scrollbar { display: none; }
+            `,
               }}
-              onPointerDown={() => setIsPaused(true)}
-              className="flex flex-nowrap items-center gap-3 lg:flex-wrap lg:justify-center"
-            >
-              {(isMobile ? [...categories, ...categories] : categories).map(
-                (cat, idx) => (
-                  <button
-                    key={`${cat}-${idx}`}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`px-6 py-2 md:px-8 md:py-2.5 rounded-full text-[10px] md:text-xs uppercase tracking-[0.15em] transition-all border shrink-0 ${
-                      activeCategory === cat
-                        ? "bg-amber-500 text-black border-amber-500 font-bold"
-                        : "text-gray-400 border-white/10 hover:text-white"
-                    }`}
-                  >
-                    {cat.replace(/-/g, " ")}
-                  </button>
-                )
-              )}
-            </motion.div>
+            />
+
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2.5 md:px-8 md:py-3 rounded-full text-[10px] md:text-xs uppercase tracking-[0.15em] transition-all border shrink-0 outline-none whitespace-nowrap
+                  ${
+                    activeCategory === cat
+                      ? "bg-amber-500 text-black border-amber-500 font-bold active-cat shadow-[0_0_15px_rgba(245,158,11,0.3)]"
+                      : "text-gray-400 border-white/10 hover:text-white bg-white/5"
+                  }`}
+              >
+                {cat.replace(/-/g, " ")}
+              </button>
+            ))}
           </div>
         </div>
 
         {/* Menu Area */}
         <div className="max-w-6xl mx-auto px-6">
+          {/* Background Loading Pulse (Subtle) */}
+          {isFetching && !isLoading && (
+            <div className="flex justify-center mb-4">
+              <div className="text-[10px] text-amber-500/50 tracking-widest animate-pulse">
+                UPDATING MENU...
+              </div>
+            </div>
+          )}
+
           <AnimatePresence mode="wait">
             <motion.div
               key={activeCategory}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 md:gap-x-24 gap-y-10"
             >
               {menuData.length > 0 ? (
@@ -171,10 +175,10 @@ const AllMenu = () => {
               {displayCount < menuData.length ? (
                 <button
                   onClick={() => setDisplayCount(menuData.length)}
-                  className="group flex flex-col items-center gap-2"
+                  className="group flex flex-col items-center gap-2 border border-white/5 py-4 px-8 rounded-xl hover:bg-white/5 transition-all"
                 >
                   <span className="text-[10px] uppercase tracking-[0.4em] text-gray-500 group-hover:text-amber-500 transition-all">
-                    Explore Full Menu
+                    Full Menu
                   </span>
                   <ArrowDown
                     className="text-amber-500 animate-bounce"

@@ -31,7 +31,7 @@ const ContactUs = () => {
         <title>Contact Us | Your Family Pizza</title>
       </Helmet>
 
-      <section className="bg-[#051117] text-white py-16 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+      <section className="bg-[#051117] text-white py-24 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <div className="text-center mb-16">
@@ -100,7 +100,7 @@ const ContactUs = () => {
                         <Facebook size={18} />
                       </a>
                       <a
-                        href="#"
+                        href="https://www.instagram.com/YourFamilyPizza?fbclid=IwY2xjawPh9qBleHRuA2FlbQIxMABicmlkETFoRDF2R2hJbU84WTRFWXhvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHrp3UPGxCbAP3oDHHm_SY2ZglMsVzYn5RE14CFakCCR_dIQR6Jl08bwx6IzS_aem_m6RQV_vWaxqD7SuP4GjIGA"
                         className="text-gray-400 hover:text-amber-500 transition-all"
                       >
                         <Instagram size={18} />

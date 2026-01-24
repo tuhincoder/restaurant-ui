@@ -4,25 +4,33 @@ import { Clock, MapPin, ArrowRight } from "lucide-react";
 
 export default function HeroVideoSection({ restaurantData }) {
   return (
-    // Mobile-e height auto/fixed (70vh) ebong Desktop-e h-screen
+    // Section height settings
     <section className="relative h-[75vh] md:h-screen min-h-[550px] md:min-h-[660px] w-full overflow-hidden bg-black">
-      {/* Background Video - Object focus center */}
+      {/* Background Video */}
       <video
         src={`/videos/${restaurantData?.[0]?.heroVideo}`}
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-60 md:opacity-100"
+        // মোবাইলে ভিডিও ৯৫% উজ্জ্বল (opacity-95) কিন্তু ডেস্কটপে আপনার আগের মতো ১০০% ই থাকবে
+        className="absolute inset-0 w-full h-full object-cover opacity-95 md:opacity-100"
       />
 
-      {/* Overlay: Mobile-e dark gradient ta arektu heavy jate readability thake */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#050c10]"></div>
+      {/* Overlay Gradient - এটিই মেইন পরিবর্তন */}
+      <div
+        className="absolute inset-0 
+        /* মোবাইলের জন্য হালকা গ্রেডিয়েন্ট */
+        bg-gradient-to-b from-black/50 via-transparent to-[#050c10] 
+        /* ডেস্কটপে আপনার দেওয়া আগের সেই ডার্ক গ্রেডিয়েন্ট (md: prefix) */
+        md:bg-gradient-to-b md:from-black/80 md:via-black/40 md:to-[#050c10] 
+        z-[1]"
+      ></div>
 
       {/* Content Container */}
       <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-end pb-12 md:pb-0 md:justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
-          {/* Text Content: Mobile-e order-1 jate age text dekha jay */}
+          {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -31,20 +39,21 @@ export default function HeroVideoSection({ restaurantData }) {
           >
             <div className="h-[2px] w-12 bg-amber-500"></div>
 
-            <h1 className="text-white text-4xl md:text-7xl font-light tracking-tighter leading-[1.1] uppercase">
+            {/* টেক্সটে হালকা শ্যাডো দেওয়া হয়েছে যাতে মোবাইল ভিডিও উজ্জ্বল হলেও লেখা পড়া যায় */}
+            <h1 className="text-white text-4xl md:text-7xl font-light tracking-tighter leading-[1.1] uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] md:drop-shadow-none">
               {restaurantData?.[0]?.name || "YOUR FAMILY PIZZA"} <br />
               <span className="italic font-serif text-amber-500 text-3xl md:text-6xl">
                 Kitchen & Bar
               </span>
             </h1>
 
-            <p className="text-gray-300 max-w-sm md:max-w-md text-sm md:text-lg font-light leading-relaxed border-l border-amber-500/30 pl-4">
+            <p className="text-gray-200 md:text-gray-300 max-w-sm md:max-w-md text-sm md:text-lg font-light leading-relaxed border-l border-amber-500/30 pl-4 drop-shadow-md md:drop-shadow-none">
               {restaurantData?.[0]?.description ||
                 "Experience a symphony of flavors where traditional heritage meets modern culinary innovation."}
             </p>
 
-            {/* Quick Info - Updated with your Location & Hours */}
-            <div className="flex flex-wrap gap-4 pt-2 text-[10px] uppercase tracking-[0.2em] text-amber-500/80 font-bold">
+            {/* Quick Info */}
+            <div className="flex flex-wrap gap-4 pt-2 text-[10px] uppercase tracking-[0.2em] text-amber-500 font-bold md:text-amber-500/80">
               <div className="flex items-center gap-1.5">
                 <MapPin size={14} className="text-amber-500" /> Kenna, WV
               </div>
@@ -54,7 +63,7 @@ export default function HeroVideoSection({ restaurantData }) {
             </div>
           </motion.div>
 
-          {/* Action Circle: Desktop only */}
+          {/* Action Circle: Desktop only - একদম আগের মতো রাখা হয়েছে */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

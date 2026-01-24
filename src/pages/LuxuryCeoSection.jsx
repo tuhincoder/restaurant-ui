@@ -30,7 +30,7 @@ const LuxuryCeoSection = () => {
     );
 
   return (
-    <section className="relative bg-[#051117] text-white py-20 lg:py-24 px-6 overflow-hidden">
+    <section className="relative bg-[#051117] text-white pt-10 md:pt-10 px-6 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20 pointer-events-none">
         <div className="absolute top-1/4 left-10 w-48 md:w-96 h-48 md:h-96 bg-amber-900/30 rounded-full blur-[100px]"></div>
       </div>

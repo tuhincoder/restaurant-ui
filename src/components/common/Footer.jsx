@@ -96,7 +96,7 @@ const Footer = () => {
             </h4>
             <div className="flex gap-4 mb-10">
               <motion.a
-                href="https://facebook.com"
+                href="https://www.facebook.com/p/Your-Family-Pizza-61578005693524"
                 target="_blank"
                 whileHover={{ y: -3, color: "#f59e0b" }}
                 className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5"
@@ -104,7 +104,7 @@ const Footer = () => {
                 <FaFacebookF size={16} />
               </motion.a>
               <motion.a
-                href="https://instagram.com"
+                href="https://www.instagram.com/YourFamilyPizza?fbclid=IwY2xjawPh9qBleHRuA2FlbQIxMABicmlkETFoRDF2R2hJbU84WTRFWXhvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHrp3UPGxCbAP3oDHHm_SY2ZglMsVzYn5RE14CFakCCR_dIQR6Jl08bwx6IzS_aem_m6RQV_vWaxqD7SuP4GjIGA"
                 target="_blank"
                 whileHover={{ y: -3, color: "#f59e0b" }}
                 className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5"
