@@ -62,10 +62,17 @@ const Reservation = () => {
               <span className="text-amber-500 font-bold tracking-[0.4em] text-[10px] uppercase">
                 Online Booking
               </span>
-              <h3 className="text-4xl md:text-6xl font-serif mt-2 mb-4 tracking-tight">
-                Reserve Your{" "}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-3xl md:text-6xl font-serif italic text-white"
+              >
+                Reserve Your <span className="text-amber-500">Table</span>
+              </motion.h2>
+              {/* <h3 className="text-4xl md:text-6xl font-serif mt-2 mb-4 tracking-tight">
+                Reserve Your{"  "}
                 <span className="text-amber-500 italic">Table</span>
-              </h3>
+              </h3> */}
               <p className="text-gray-400 text-sm md:text-base font-light max-w-md mx-auto lg:mx-0">
                 Join us for an unforgettable culinary journey. Secure your spot
                 at Restaurant.
@@ -122,9 +129,11 @@ const Reservation = () => {
                   name="time"
                   className="w-full bg-transparent outline-none cursor-pointer text-white font-light py-1 appearance-none"
                 >
-                  <option className="bg-[#051117]">07:00 PM</option>
-                  <option className="bg-[#051117]">08:30 PM</option>
-                  <option className="bg-[#051117]">10:00 PM</option>
+                  <option className="bg-[#051117]">11:00 AM – 1:00 PM</option>
+                  <option className="bg-[#051117]">1:00 PM – 3:00 PM</option>
+                  <option className="bg-[#051117]">3:00 PM – 5:00 PM</option>
+                  <option className="bg-[#051117]">5:00 PM – 7:00 PM</option>
+                  <option className="bg-[#051117]">7:00 PM – 9:00 PM</option>
                 </select>
                 <ChevronDown
                   size={14}

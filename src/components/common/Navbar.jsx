@@ -24,11 +24,12 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Menu", path: "/menu" },
+    { name: "Menu", path: "/allMenu" },
     { name: "About Us", path: "/aboutUs" },
-    { name: "Contact", path: "/contact" },
     { name: "Hours", path: "/hours" },
-    { name: "Reservation", path: "/reservation" },
+    { name: "Happy Moments", path: "/happy-customers" },
+    { name: "Contact", path: "/contact" },
+    // { name: "Reservation", path: "/reservation" },
   ];
 
   return (

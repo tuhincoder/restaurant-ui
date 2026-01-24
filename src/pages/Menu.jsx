@@ -1,23 +1,39 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import useMenu from "@/hooks/useMenu";
-import Loading from "@/components/loader/Loading";
-
-import { ArrowRight, ChevronDown } from "lucide-react"; // আইকন যোগ করা হয়েছে
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import Loading from "@/components/loader/Loading"; // আপনার বর্তমান লোডিং কম্পোনেন্ট
+import { ArrowRight, ChevronDown, Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState("Pizza");
   const [showAll, setShowAll] = useState(false);
-  const [menu, isLoading] = useMenu();
 
   const menuRef = useRef(null);
-  const footerRef = useRef(null); // নিচে স্ক্রল করার জন্য
+  const footerRef = useRef(null);
 
-  const filteredItems =
-    menu?.filter((item) => item.category === activeTab) || [];
-  const itemsToDisplay = showAll ? filteredItems : filteredItems.slice(0, 12);
+  // --- ডাইনামিক ডাটা ফেচিং (TanStack Query) ---
+  const {
+    data: menuItems = [],
+    isLoading,
+    isFetching,
+  } = useQuery({
+    queryKey: ["menu", activeTab],
+    queryFn: async () => {
+      const response = await axios.get(
+        `https://restaurant-server-delta-lyart.vercel.app/menu?category=${activeTab}`
+      );
+      return response.data;
+    },
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 10,
+    keepPreviousData: false,
+  });
+
+  // ডিসপ্লে লজিক
+  const itemsToDisplay = showAll ? menuItems : menuItems.slice(0, 12);
 
   const handleToggleMenu = () => {
     if (showAll) {
@@ -32,8 +48,6 @@ const Menu = () => {
     }
   };
 
-  if (isLoading) return <Loading />;
-
   return (
     <>
       <Helmet>
@@ -47,30 +61,11 @@ const Menu = () => {
       <section
         ref={menuRef}
         id="menu"
-        className="bg-[#051117] text-white py-16 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden"
+        className="bg-[#051117]  text-white py-16 md:pt-24 px-6 md:px-12 lg:px-24 relative overflow-hidden"
       >
-        {/* Background Glow */}
         <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-amber-900/10 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          {/* --- TOP CTA BUTTON --- */}
-          <a href="/menu">
-            <div className="flex justify-end mb-8">
-              <motion.button
-                whileHover={{ x: 5 }}
-                onClick={() =>
-                  footerRef.current?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="group flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-amber-500/80 hover:text-amber-500 transition-all"
-              >
-                See All Categories{" "}
-                <ArrowRight
-                  size={14}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </motion.button>
-            </div>
-          </a>
           <div className="text-center mb-12">
             <motion.p
               initial={{ opacity: 0 }}
@@ -79,9 +74,16 @@ const Menu = () => {
             >
               Handcrafted with love
             </motion.p>
-            <h2 className="text-3xl md:text-5xl font-light tracking-[0.2em] uppercase">
-              Our Pizza Menu
-            </h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-3xl md:text-6xl font-serif italic text-white"
+            >
+              Our <span className="text-amber-500">Menu</span>
+            </motion.h2>
+            {/* <h2 className="text-3xl md:text-5xl font-light tracking-[0.2em] uppercase">
+              Our {activeTab} Menu
+            </h2> */}
             <div className="h-[1px] w-12 bg-amber-500/40 mx-auto mt-4"></div>
           </div>
 
@@ -107,43 +109,53 @@ const Menu = () => {
             </div>
           </div>
 
-          {/* Menu Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12 min-h-[400px]">
-            <AnimatePresence mode="popLayout">
-              {itemsToDisplay.map((item, index) => (
-                <motion.div
-                  key={item._id || item.id}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="group relative"
-                >
-                  <div className="flex items-baseline gap-4 mb-2">
-                    <h3 className="text-sm md:text-base font-bold tracking-[0.15em] uppercase group-hover:text-amber-500 transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <div className="flex-grow border-b border-white/10 border-dashed translate-y-[-4px]"></div>
-                    <span className="text-amber-500 font-serif italic text-lg md:text-xl">
-                      ${item.price.toFixed(2)}
-                    </span>
-                  </div>
-                  <p className="text-gray-500 text-xs md:text-sm font-light tracking-wide leading-relaxed max-w-[85%] group-hover:text-gray-400 transition-colors">
-                    {item.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+          {/* --- Loading & Content Area --- */}
+          <div className="relative min-h-[400px]">
+            {isLoading || isFetching ? (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#051117]/50 backdrop-blur-sm z-20">
+                <Loader2 className="w-10 h-10 text-amber-500 animate-spin" />
+                <p className="text-amber-500/60 tracking-[0.3em] text-[10px] uppercase animate-pulse">
+                  Fetching {activeTab}...
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
+                <AnimatePresence mode="popLayout">
+                  {itemsToDisplay.map((item, index) => (
+                    <motion.div
+                      key={item._id}
+                      layout
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="group relative"
+                    >
+                      <div className="flex items-baseline gap-4 mb-2">
+                        <h3 className="text-sm md:text-base font-bold tracking-[0.15em] uppercase group-hover:text-amber-500 transition-colors duration-300">
+                          {item.title}
+                        </h3>
+                        <div className="flex-grow border-b border-white/10 border-dashed translate-y-[-4px]"></div>
+                        <span className="text-amber-500 font-serif italic text-lg md:text-xl">
+                          ${item.price?.toFixed(2)}
+                        </span>
+                      </div>
+                      <p className="text-gray-500 text-xs md:text-sm font-light tracking-wide leading-relaxed max-w-[85%] group-hover:text-gray-400 transition-colors">
+                        {item.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            )}
           </div>
 
-          {/* --- BOTTOM SECTION --- */}
+          {/* --- Bottom Section --- */}
           <div
             ref={footerRef}
             className="mt-20 flex flex-col items-center gap-8"
           >
-            {/* Main Toggle Button */}
-            {filteredItems.length > 12 && (
+            {!isLoading && menuItems.length > 12 && (
               <button
                 onClick={handleToggleMenu}
                 className="relative px-12 py-4 group overflow-hidden border border-amber-500/20 rounded-full transition-all hover:border-amber-500"
@@ -157,28 +169,6 @@ const Menu = () => {
                 <div className="absolute inset-0 bg-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
               </button>
             )}
-
-            {/* Bottom Link to Contact/Order */}
-            <motion.div
-              initial={{ opacity: 0.5 }}
-              whileHover={{ opacity: 1 }}
-              className="pt-12 border-t border-white/5 w-full flex justify-center"
-            >
-              <a
-                href="/contact"
-                className="flex items-center gap-4 group text-white/60 hover:text-amber-500 transition-all"
-              >
-                <span className="text-[11px] tracking-[0.5em] uppercase">
-                  Ready to Order? Go to Contact
-                </span>
-                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-amber-500 transition-all">
-                  <ArrowRight
-                    size={16}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </div>
-              </a>
-            </motion.div>
           </div>
         </div>
       </section>

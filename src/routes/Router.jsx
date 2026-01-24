@@ -9,27 +9,23 @@ import ErrorPage from "@/pages/shared/ErrorPage";
 import DishesDetails from "@/pages/menu/dishes/DishesDetails";
 import Hours from "@/pages/hours/Hours";
 import AllMenu from "@/pages/menu/AllMenu";
+import HappyCustomers from "@/pages/HappyCustomers/HappyCustomers";
 
 const router = createBrowserRouter([
   {
     path: "/",
+
     element: <MainLayout />,
+
     errorElement: <ErrorPage />,
     children: [
       {
         index: true,
         element: <Home></Home>,
       },
+
       {
-        path: "/singleDishes/:id",
-        element: <DishesDetails></DishesDetails>,
-        loader: ({ params }) =>
-          fetch(
-            `https://restaurant-server-delta-lyart.vercel.app/singleDishes/${params.id}`
-          ),
-      },
-      {
-        path: "menu",
+        path: "allMenu",
         element: <AllMenu />,
       },
       {
@@ -44,6 +40,10 @@ const router = createBrowserRouter([
         path: "hours",
         element: <Hours />,
       },
+      {
+        path: "happy-customers",
+        element: <HappyCustomers />,
+      },
 
       {
         path: "reservation",
@@ -52,6 +52,14 @@ const router = createBrowserRouter([
       {
         path: "bookTable",
         element: <BookATable />,
+      },
+      {
+        path: "/singleDishes/:id",
+        element: <DishesDetails></DishesDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://restaurant-server-delta-lyart.vercel.app/singleDishes/${params.id}`
+          ),
       },
     ],
   },

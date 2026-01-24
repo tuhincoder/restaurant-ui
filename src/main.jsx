@@ -5,6 +5,7 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/Router.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 // import { HelmetProvider } from "react-helmet-async";
 
 // Create a client
