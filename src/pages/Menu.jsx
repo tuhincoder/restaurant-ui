@@ -1,20 +1,16 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import axios from "axios";
-import Loading from "@/components/loader/Loading"; // আপনার বর্তমান লোডিং কম্পোনেন্ট
-import { ArrowRight, ChevronDown, Loader2 } from "lucide-react";
+import { ChevronDown, Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState("Pizza");
   const [showAll, setShowAll] = useState(false);
 
   const menuRef = useRef(null);
-  const footerRef = useRef(null);
 
-  // --- ডাইনামিক ডাটা ফেচিং (TanStack Query) ---
   const {
     data: menuItems = [],
     isLoading,
@@ -27,12 +23,11 @@ const Menu = () => {
       );
       return response.data;
     },
-    staleTime: 1000 * 60 * 5,
-    gcTime: 1000 * 60 * 10,
-    keepPreviousData: false,
+    staleTime: 1000 * 60 * 10,
+    gcTime: 1000 * 60 * 15,
+    placeholderData: keepPreviousData,
   });
 
-  // ডিসপ্লে লজিক
   const itemsToDisplay = showAll ? menuItems : menuItems.slice(0, 12);
 
   const handleToggleMenu = () => {
@@ -52,17 +47,14 @@ const Menu = () => {
     <>
       <Helmet>
         <title>Our Menu | Your Family Pizza</title>
-        <meta
-          name="description"
-          content="Explore our artisanal pizza selection"
-        />
       </Helmet>
 
       <section
         ref={menuRef}
         id="menu"
-        className="bg-[#051117]  text-white py-16 md:pt-24 px-6 md:px-12 lg:px-24 relative overflow-hidden"
+        className="bg-[#051117] text-white py-16 md:pt-24 px-6 md:px-12 lg:px-24 relative overflow-hidden"
       >
+        {/* Background Glow */}
         <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-amber-900/10 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
@@ -81,9 +73,6 @@ const Menu = () => {
             >
               Our <span className="text-amber-500">Menu</span>
             </motion.h2>
-            {/* <h2 className="text-3xl md:text-5xl font-light tracking-[0.2em] uppercase">
-              Our {activeTab} Menu
-            </h2> */}
             <div className="h-[1px] w-12 bg-amber-500/40 mx-auto mt-4"></div>
           </div>
 
@@ -109,26 +98,30 @@ const Menu = () => {
             </div>
           </div>
 
-          {/* --- Loading & Content Area --- */}
+          {/* --- Content Area --- */}
           <div className="relative min-h-[400px]">
-            {isLoading || isFetching ? (
+            {isLoading && menuItems.length === 0 ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#051117]/50 backdrop-blur-sm z-20">
                 <Loader2 className="w-10 h-10 text-amber-500 animate-spin" />
-                <p className="text-amber-500/60 tracking-[0.3em] text-[10px] uppercase animate-pulse">
-                  Fetching {activeTab}...
+                <p className="text-amber-500/60 tracking-[0.3em] text-[10px] uppercase">
+                  Loading Menu...
                 </p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
+              <div
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12 transition-opacity duration-500 ${
+                  isFetching ? "opacity-50" : "opacity-100"
+                }`}
+              >
                 <AnimatePresence mode="popLayout">
                   {itemsToDisplay.map((item, index) => (
                     <motion.div
                       key={item._id}
                       layout
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ duration: 0.3, delay: index * 0.02 }}
                       className="group relative"
                     >
                       <div className="flex items-baseline gap-4 mb-2">
@@ -150,11 +143,8 @@ const Menu = () => {
             )}
           </div>
 
-          {/* --- Bottom Section --- */}
-          <div
-            ref={footerRef}
-            className="mt-20 flex flex-col items-center gap-8"
-          >
+          {/* --- View Full Menu Button --- */}
+          <div className="mt-20 flex flex-col items-center gap-8">
             {!isLoading && menuItems.length > 12 && (
               <button
                 onClick={handleToggleMenu}
