@@ -39,7 +39,7 @@ const Loading = () => {
               className="text-center mt-4"
             >
               <h1 className="text-4xl md:text-6xl font-serif text-white tracking-[0.3em] uppercase italic">
-                Foodix
+                Pizza
               </h1>
 
               {/* Animated Progress Line */}

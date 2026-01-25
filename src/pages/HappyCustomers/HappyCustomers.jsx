@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import Loading from "@/components/loader/Loading";
 
 const reactionsList = [
   { label: "Like", emoji: "👍" },
@@ -68,12 +69,9 @@ const HappyCustomers = () => {
     }, {});
   };
 
-  if (isLoading)
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-[#051117] text-amber-500 font-serif italic tracking-widest text-lg">
-        Loading Moments...
-      </div>
-    );
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <section className="bg-[#051117] min-h-screen pt-24 md:pt-32 pb-10 px-4 md:px-10">
