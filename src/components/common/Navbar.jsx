@@ -47,7 +47,7 @@ export default function Navbar() {
             <div className="p-2 bg-amber-500 rounded-lg group-hover:rotate-12 transition-transform duration-300">
               <UtensilsCrossed size={20} className="text-black" />
             </div>
-            <span className="text-2xl font-serif font-bold tracking-tighter text-white">
+            <span className="hidden md:block text-2xl font-serif font-bold tracking-tighter text-white">
               PIZZA<span className="text-amber-500">.</span>
             </span>
           </NavLink>
